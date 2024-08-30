@@ -159,6 +159,9 @@ import YPImagePicker
             return imageData.base64EncodedString();
         } else {
             let filePath = self.tempFilePath();
+            if(asJpeg){
+                filePath = self.tempFilePath("jpeg");
+            }
             do {
                 try imageData.write(to: filePath, options: .atomic);
                 return filePath.absoluteString;
